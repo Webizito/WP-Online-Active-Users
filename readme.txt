@@ -14,7 +14,7 @@ Plugin URI: https://wordpress.org/plugins/online-active-users/
 Author: Webizito
 Author URI: http://webizito.com/
 Text Domain: wp-online-active-users
-Version: 1.4
+Version: 1.5
 
 WP Online Active Users plugin enables you to display how many users are currently online active and display on your Users page in the WordPress admin.
 
@@ -114,6 +114,9 @@ Thank you for considering a donation to support the development of WP Online Act
 = 1.4 =
 * Fixed Two-Factor plugin column content issue
 
+= 1.5 =
+* Added uninstall file and improved security 
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -130,3 +133,6 @@ Thank you for considering a donation to support the development of WP Online Act
 
 = 1.4 =
 * This version fixed Two-Factor plugin column content issue. Upgrade immediately.
+
+= 1.5 =
+* This version added uninstall file and improved security. Upgrade immediately.
