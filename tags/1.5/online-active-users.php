@@ -4,8 +4,8 @@
  * Plugin Title: Online Active Users Plugin
  * Plugin URI: https://wordpress.org/plugins/online-active-users/
  * Description: WordPress Online Active Users plugin enables you to display how many users are currently online active and display user last seen on your Users page in the WordPress admin.
- * Tags: wp-online-active-users, users, active-users, online-user, available-users, wordpress users, user-last-seen, currently-active-user, user-online, online-user-status, online users, active users, wordpress online user
- * Version: 1.8
+ * Tags: wp-online-active-users, users, active-users, online-user, available-users, user-last-seen, currently-active-user, user-online, online-user-status, online users, active users, wordpress online user, wp online users, wordPress users
+ * Version: 1.5
  * Author: Webizito
  * Author URI: http://webizito.com/
  * Contributors: valani9099
@@ -189,6 +189,7 @@ if ( ! class_exists( 'webi_active_user' ) ) {
                 // You can still use `array_unshift()` to add links at the beginning.
                 $links_array[] = '<a href="https://wordpress.org/support/plugin/online-active-users/" target="_blank">Support</a>';
                 $links_array[] = '<a href="https://webizito.com/wp-online-active-users/" target="_blank">Docs</a>';
+                $links_array[] = '<strong><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=APRNBJUZHRP7G" target="_blank">Donate »</a></strong>';
                 $links_array[] = '<strong><a href="https://wordpress.org/support/plugin/online-active-users/reviews/?rate=5#new-post" target="_blank">Rate our plugin  <span style="color:#ffb900;font-size: 18px;position:relative;top:0.1em;">★★★★★</span></a></strong>';
             }
             return $links_array;
@@ -196,8 +197,7 @@ if ( ! class_exists( 'webi_active_user' ) ) {
 
         public function webizito_plugin_by_link( $links ){
             $url = 'https://webizito.com/';
-            $links[] = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=APRNBJUZHRP7G" target="_blank">' . __( '<span style="font-weight: bold;">Donate</span>', 'wp-online-active-users' ) . '</a>';
-            $_link = '<a href="'.$url.'" target="_blank">' . __( 'By <span>Webizito</span>', 'wp-online-active-users' ) . '</a>';
+            $_link = '<a href="'.$url.'" target="_blank">' . __( 'By <span style="font-weight: bold;">Webizito</span>', 'wp-online-active-users' ) . '</a>';
             $links[] = $_link;
             return $links;
         }
