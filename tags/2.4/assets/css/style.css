@@ -1,0 +1,34 @@
+.status.column-status, 
+.manage-column.column-status{
+    text-align: center;
+}
+.online-logged-in {
+    color: #4CBB17;
+    font-size: 32px;
+}
+.offline-dot{
+    color:#FF4433;
+    font-size: 32px;
+}
+#wpadminbar #wp-admin-bar-webi_user_link .ab-icon {
+    font-size: 30px !important;
+    top: -9px;
+}
+.webi-active-users{
+    width: 30%;
+    max-width: 100%;
+    background-color: #4CBB17;
+    text-align: center;
+    padding: 15px;
+    height: auto;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+}
+.webi-active-users small {
+    font-size: 17px;
+    font-weight: 700;
+}
+.widget-area .webi-active-users{
+     width: 100%;
+}
