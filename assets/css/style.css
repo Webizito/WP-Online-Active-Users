@@ -10,6 +10,10 @@
     color:#FF4433;
     font-size: 32px;
 }
+.never-dot{
+    color:#808080;
+    font-size: 32px;
+}
 #wpadminbar #wp-admin-bar-webi_user_link .ab-icon {
     font-size: 30px !important;
     top: -9px;
