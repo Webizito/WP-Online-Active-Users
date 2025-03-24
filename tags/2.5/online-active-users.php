@@ -5,7 +5,7 @@
  * Plugin URI: https://wordpress.org/plugins/online-active-users/
  * Description: WordPress Online Active Users plugin enables you to display how many users are currently online active and display user last seen on your Users page in the WordPress admin.
  * Tags: wp-online-active-users, users, active-users, online-user, available-users
- * Version: 2.6
+ * Version: 2.5
  * Author: Webizito
  * Author URI: http://webizito.com/
  * Contributors: valani9099
@@ -26,8 +26,6 @@ if ( ! class_exists( 'webi_active_user' ) ) {
            
             register_activation_hook( __FILE__, array($this, 'webizito_users_status_init' ));
             add_action('init', array($this, 'webizito_users_status_init'));
-            add_action('init', array($this, 'webi_track_user_activity'));
-            add_action('clear_auth_cookie', array($this, 'webizito_user_logout'));
             add_action('wp_loaded', array($this,'webizito_enqueue_script'));
             add_action('admin_enqueue_scripts', array($this,'webi_enqueue_custom_scripts'));
             add_action('admin_init', array($this, 'webizito_users_status_init'));
@@ -51,101 +49,37 @@ if ( ! class_exists( 'webi_active_user' ) ) {
 
         public function webi_enqueue_custom_scripts() {
             wp_enqueue_script('webi-plugin-script', plugin_dir_url(__FILE__) . 'assets/js/custom.js', array('jquery'), rand(1,9999), true);
-
-            wp_add_inline_script('webi-plugin-script', "
-                jQuery(document).ready(function($) {
-                    $('.webizito-last-seen').each(function() {
-                        var timestamp = $(this).data('timestamp');
-                        if (timestamp) {
-                            var date = new Date(timestamp * 1000);
-                            $(this).text(date.toLocaleString());
-                        }
-                    });
-                });
-            ");
         }
+
 
         //Update user online status
-        public function webizito_user_login($user_login, $user) {
+        public function webizito_users_status_init(){
             $logged_in_users = get_transient('users_status');
-            
-            if (!is_array($logged_in_users)) {
-                $logged_in_users = array();
-            }
-
-            $logged_in_users[$user->ID] = array(
-                'id' => $user->ID,
-                'username' => $user->user_login,
-                'last' => time(),
-            );
-
-            set_transient('users_status', $logged_in_users, 60);
-            update_user_meta($user->ID, 'last_seen', time());
-        }
-
-        public function webizito_users_status_init() {
-            $logged_in_users = get_transient('users_status');
-            
-            if (!is_array($logged_in_users)) {
-                $logged_in_users = array();
-            }
-
             $user = wp_get_current_user();
-            if ($user->ID) {
-                // Update user's last seen time
+            
+            if ( !isset($logged_in_users[$user->ID]['last']) || $logged_in_users[$user->ID]['last'] <= time()-50 ){
                 $logged_in_users[$user->ID] = array(
                     'id' => $user->ID,
                     'username' => $user->user_login,
                     'last' => time(),
                 );
-
-                // Store without expiration, keep refreshing via heartbeat
-                set_transient('users_status', $logged_in_users);
+                set_transient('users_status', $logged_in_users, 50);
             }
-        }
-
-        // Remove user from the online list when they log out
-        public function webizito_user_logout() {
-            if (!is_user_logged_in()) return; // Prevent errors if already logged out
-
-            $user_id = get_current_user_id();
-            if (!$user_id) return;
-
-            $logged_in_users = get_transient('users_status');
-
-            if (isset($logged_in_users[$user_id])) {
-                unset($logged_in_users[$user_id]);
-                set_transient('users_status', $logged_in_users, 60);
-            }
-
-            update_user_meta($user_id, 'last_seen', time());
         }
 
         //Check if a user has been online in the last 5 minutes
         public function webizito_is_user_online($id){  
             $logged_in_users = get_transient('users_status');
-            
-            // User is online if found in transient and last activity is within 50 seconds
-            if (isset($logged_in_users[$id]) && $logged_in_users[$id]['last'] > time() - 50) {
-                return true;
-            }
-
-            // Fallback: Check user meta if transient fails
-            $last_seen = get_user_meta($id, 'last_seen', true);
-            return ($last_seen && $last_seen > time() - 50);
+            return isset($logged_in_users[$id]['last']) && $logged_in_users[$id]['last'] > time()-50;
         }
 
         //Check when a user was last online.
         public function webizito_user_last_online($id){
-            $logged_in_users = get_transient('users_status') ?: array();
-            return isset($logged_in_users[$id]['last']) ? $logged_in_users[$id]['last'] : false;
-        }
-
-         // Always update last seen
-        public function webi_track_user_activity() {
-            if (is_user_logged_in()) {
-                $user_id = get_current_user_id();
-                update_user_meta($user_id, 'last_seen', time());
+            $logged_in_users = get_transient('users_status');
+            if ( isset($logged_in_users[$id]['last']) ){
+                return $logged_in_users[$id]['last'];
+            } else {
+                return false;
             }
         }
 
@@ -156,22 +90,14 @@ if ( ! class_exists( 'webi_active_user' ) ) {
         }
 
         //Display Status in Users Page 
-        public function webizito_user_columns_content($value = '', $column_name, $id) {
-            if ($column_name == 'status') {
-                if ($this->webizito_is_user_online($id)) {
-                    return '<span class="online-logged-in">●</span> <br /><small><em>Online Now</em></small>';
-                } else {
-                    $last_seen = get_user_meta($id, 'last_seen', true);
-
-                    if (!$last_seen) {
-                        $last_seen_text = "<small><em>Never Logged In</em></small>";
-                        return '<span class="never-dot">●</span> <br />' . $last_seen_text;
-                    } else {
-                        $last_seen_text = "<small>Last Seen: <br /><em class='webizito-last-seen' data-timestamp='{$last_seen}'>" . date('M j, Y @ g:ia', $last_seen) . "</em></small>";
-                        return '<span class="offline-dot">●</span> <br />' . $last_seen_text;
-                    }
-
-                    
+        public function webizito_user_columns_content($value='', $column_name, $id){
+            if ( $column_name == 'status' ){
+                if ( $this->webizito_is_user_online($id) ){
+                    return '<span class="online-logged-in">●</span>';
+                } else if($this->webizito_user_last_online($id)){
+                    return ( $this->webizito_user_last_online($id) ) ? ' <span class="offline-dot">●</span><br /><small>Last Seen: <br /><em>' . date('M j, Y @ g:ia', $this->webizito_user_last_online($id)) . '</em></small>' : '';
+                }else{
+                    return '<span class="offline-dot">●</span>';
                 }
             }
         }
