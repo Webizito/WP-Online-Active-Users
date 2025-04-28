@@ -5,7 +5,7 @@
  * Plugin URI: https://wordpress.org/plugins/online-active-users/
  * Description: WordPress Online Active Users plugin enables you to display how many users are currently online active and display user last seen on your Users page in the WordPress admin.
  * Tags: wp-online-active-users, users, active-users, online-user, available-users
- * Version: 2.6
+ * Version: 2.7
  * Author: Webizito
  * Author URI: http://webizito.com/
  * Contributors: valani9099
