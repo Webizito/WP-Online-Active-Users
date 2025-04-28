@@ -150,9 +150,6 @@ Thank you for considering a donation to support the development of WP Online Act
 = 2.6 =
 * Fix bug and Always show last seen
 
-= 2.7 =
-* Wordpress latest Version supported
-
 == Upgrade Notice ==
 
 = 1.0 =
@@ -205,6 +202,3 @@ Thank you for considering a donation to support the development of WP Online Act
 
 = 2.6 =
 * Bug fix and Always show last seen. Upgrade immediately.
-
-= 2.7 =
-* Wordpress latest Version supported. Upgrade immediately.
