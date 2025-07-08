@@ -1,10 +1,10 @@
 === WP Online Active Users ===
 Contributors: valani9099
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=APRNBJUZHRP7G
-Tags: users, active-users, online users, WP Online users, available-users
+Tags: online users, active-users, woocommerce-users, WP Online users, user-status
 Requires at least: 6.3
 Tested up to: 6.8
-Stable tag: 2.7
+Stable tag: 2.9
 Requires PHP: 7.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -14,45 +14,54 @@ Plugin URI: https://wordpress.org/plugins/online-active-users/
 Author: Webizito
 Author URI: http://webizito.com/
 Text Domain: wp-online-active-users
-Version: 2.7
+Version: 2.9
 
-WP Online Active Users plugin enables you to display how many users are currently online active and display on your Users page in the WordPress admin.
+WP Online Active Users is a lightweight, powerful plugin to monitor and display how many users are currently online active on your WordPress website.
 
 == Description ==
 
-WordPress Online Active Users plugin enables you to display how many users are currently online active and display user last seen on your Users page in the WordPress admin. The best way to show real-time **online active users** in WordPress dashboard is by using the **WP Online Active Users plugin**. However, you can check the status of your own WordPress site's active users by logging into your WordPress site and viewing the "Users" section, which displays a list of all users currently logged in to your WordPress site. This plugins are available that can track and display real-time active user on your WordPress site.
 
-It's a great tool for website owners who want to monitor their website's activity and ensure the security of their site. Plus, with a simple and user-friendly interface, this plugin is easy to install and use. Stay on top of your website's activity with WP Online Active Users.
+**WP Online Active Users** is a lightweight and powerful WordPress plugin that lets you monitor and display how many users are currently online active on your website. Easily view real-time user activity and last seen status directly on the Users page in your WordPress admin dashboard.
 
-WP Online Active Users plugin also supported with WooCommerce and shows how many customer logins it currently has.
+This plugin is the best solution to show live **online active users** on your WordPress site, providing instant insights into user engagement and site activity. Simply login and check the **Users** menu to see all currently logged-in users.
 
-WP Online Active Users provides Shortcode to display the how many users are currently **online active** in custom locations. These Shortcodes are usually used to display currently active users in different page builders. Below Shortcode: 
+Ideal for website owners who want to enhance site security, track active sessions, and improve user interaction. With a simple, user-friendly interface, **WP Online Active Users** is easy to install and configure. This plugin is ideal for all types of websites including blogs, membership sites, forums, and WooCommerce stores.
+
+**WooCommerce compatible**, it also displays the number of logged-in customers on your online store, helping you monitor customer activity in real-time.
+
+**WP Online Active Users** also provides a user-friendly shortcode that lets you display live user counts anywhere on your site — whether on posts, pages, widgets, or within compatible with popular page builders.
 
 `[webi_active_user]`
 
 
 **KEY FEATURES:**
 
-* Here you can easily see who is currently online Active users (logged) Status in to your WordPress admin dashboard.
-* Displays a green dot next to each online users status on their profile.
-* Displays a red dot and last seen next to each offline status on their profile.
-* Display Active User in Admin Bar.
+* View real-time online active user status in WordPress admin dashboard.
+* Green dot indicator for online users and red dot with last seen for offline users.
+* Display active users count in the WordPress admin bar.
+* WooCommerce support to track logged-in customers.
+* Shortcode support for displaying active users on posts, pages, or widgets.
+* Display online active users list table with user info.
 
+**Who Should Use WP Online Active Users?**
 
-**For Whom Wp Online Active Users Is Useful?**
+* Website Owners and Administrators
+* Membership and Community Sites
+* WooCommerce Store Managers
+* Editors, Authors, and Subscribers
 
-* Most needed for Website Owner
-* Administrator, Editor, Author, Contributor, Subscriber and Customer.
+**Why Use WP Online Active Users on Your Site?**
 
-We are planning to add more features in the upcoming versions. If you think we’re missing something big, please post your suggestions in the plugin’s forum.
+* **Real-Time User Monitoring:** Instantly see how many users are active on your website to better understand engagement and traffic patterns.
+* **Improve Security:** Detect unusual login activity and monitor user sessions to enhance your site’s security.
+* **Boost User Engagement:** Showcase live user activity as social proof to encourage interaction and trust.
+* **WooCommerce Friendly:** Track active customers in your online store to optimize marketing and sales strategies.
+* **Easy to Use & Lightweight:** Minimal setup with a clean interface that won’t slow down your website.
+* **Flexible Display Options:** Use shortcode to show online user counts anywhere on your site, compatible with all page builders.
 
-**Technical Support**
+**Support**
+We are committed to providing ongoing updates and new features based on user feedback. For support, feature requests, or bug reports, please visit our [support forum](https://wordpress.org/support/plugin/online-active-users/ "support forum").
 
-We’re active for any support issues and feature suggestions. So hope you will love it. Please contact us at [support forum](https://wordpress.org/support/plugin/online-active-users/ "support forum").
-
-**DONATIONS**
-
-Thank you for considering a donation to support the development of WP Online Active Users! Your donation helps us to continue improving and maintaining this plugin, and ensures that we can provide ongoing support to our users.
 
 == Installation ==
 
@@ -92,6 +101,7 @@ Thank you for considering a donation to support the development of WP Online Act
 3. Admin - Display Active User in Admin Bar 
 4. Admin - Here You can also add the shortcode where you want the display of Active Users to appear on any WordPress post, page, or widget sidebar
 5. Fronted - Here display Online Active Users in pages, post and widget sidebar using shortcode
+6. Admin - Here display Online Active Users list Table With User info
 
 
 == Changelog ==
@@ -153,6 +163,12 @@ Thank you for considering a donation to support the development of WP Online Act
 = 2.7 =
 * Wordpress latest Version supported
 
+= 2.8 =
+* Fix bug
+
+= 2.9 =
+* Update User online list table with show user info and Fix bug
+
 == Upgrade Notice ==
 
 = 1.0 =
@@ -208,3 +224,9 @@ Thank you for considering a donation to support the development of WP Online Act
 
 = 2.7 =
 * Wordpress latest Version supported. Upgrade immediately.
+
+= 2.8 =
+* Bug fixed. Upgrade immediately.
+
+= 2.9 =
+* Update User online list table with show user info and Bug fixed. Upgrade immediately.

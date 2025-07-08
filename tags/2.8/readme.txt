@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: online users, active-users, woocommerce-users, WP Online users, user-status
 Requires at least: 6.3
 Tested up to: 6.8
-Stable tag: 2.9
+Stable tag: 2.8
 Requires PHP: 7.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -14,7 +14,7 @@ Plugin URI: https://wordpress.org/plugins/online-active-users/
 Author: Webizito
 Author URI: http://webizito.com/
 Text Domain: wp-online-active-users
-Version: 2.9
+Version: 2.8
 
 WP Online Active Users is a lightweight, powerful plugin to monitor and display how many users are currently online active on your WordPress website.
 
@@ -41,7 +41,6 @@ Ideal for website owners who want to enhance site security, track active session
 * Display active users count in the WordPress admin bar.
 * WooCommerce support to track logged-in customers.
 * Shortcode support for displaying active users on posts, pages, or widgets.
-* Display online active users list table with user info.
 
 **Who Should Use WP Online Active Users?**
 
@@ -101,7 +100,6 @@ We are committed to providing ongoing updates and new features based on user fee
 3. Admin - Display Active User in Admin Bar 
 4. Admin - Here You can also add the shortcode where you want the display of Active Users to appear on any WordPress post, page, or widget sidebar
 5. Fronted - Here display Online Active Users in pages, post and widget sidebar using shortcode
-6. Admin - Here display Online Active Users list Table With User info
 
 
 == Changelog ==
@@ -166,9 +164,6 @@ We are committed to providing ongoing updates and new features based on user fee
 = 2.8 =
 * Fix bug
 
-= 2.9 =
-* Update User online list table with show user info and Fix bug
-
 == Upgrade Notice ==
 
 = 1.0 =
@@ -227,6 +222,3 @@ We are committed to providing ongoing updates and new features based on user fee
 
 = 2.8 =
 * Bug fixed. Upgrade immediately.
-
-= 2.9 =
-* Update User online list table with show user info and Bug fixed. Upgrade immediately.
